@@ -1,0 +1,12 @@
+import java.io.IOException;
+import java.sql.SQLException;
+
+public class REMSystem {
+	public static void main(String [] args) throws SQLException, IOException{
+		//AMSSystem Class initializes the Attendance Management System, creates a SystemHandler object to start the system.
+		@SuppressWarnings("unused")
+		SystemHandler systemhandler = new SystemHandler();
+	}
+
+
+}

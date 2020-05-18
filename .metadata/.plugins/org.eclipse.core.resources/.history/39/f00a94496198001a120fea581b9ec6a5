@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+
+public class SystemHandler {
+	
+	private static DatabaseHandler Database;
+	
+	public SystemHandler(){
+		
+		setDatabase(new DatabaseHandler());
+		
+	}
+	
+	public DatabaseHandler getDatabase(){
+		return Database;
+	}
+	public void setDatabase(DatabaseHandler database){
+		Database = database;
+	}
+	
+	ArrayList<Integer> property_ids = new ArrayList<>();
+	//property_ids = Database.GetAllPropertyIDs();
+}

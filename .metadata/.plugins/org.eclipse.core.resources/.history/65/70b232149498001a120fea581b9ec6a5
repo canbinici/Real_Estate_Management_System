@@ -1,0 +1,21 @@
+
+public abstract class AbstractProperty {
+	
+	protected int id;
+	protected String type;
+	protected String status;
+	protected Long date;
+	protected String title;
+	protected String address;
+	
+	abstract public String getType();
+	abstract public String getStatus();
+	abstract public Long getDate();
+	abstract public String getTitle();
+	abstract public String getAddress();
+	
+	
+	
+	
+
+}

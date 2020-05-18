@@ -1,0 +1,32 @@
+import java.sql.*;
+
+
+public class Property extends AbstractProperty{
+	
+	public Property(int id, String type, String status, Date date, String title, String address){
+		super(id,type,status,date,title,address);
+	}
+	
+	public void setType(String type){
+		this.type = type ;
+		
+	}
+	public void setStatus(String status){
+		this.status = status ;
+		
+	}
+	public void setDate(Date date){
+		this.date = date ;
+		
+	}
+	public void setTitle(String title){
+		this.title = title ;
+		
+	}
+	public void setAddress(String address){
+		this.address = address ;
+		
+	}
+
+
+}

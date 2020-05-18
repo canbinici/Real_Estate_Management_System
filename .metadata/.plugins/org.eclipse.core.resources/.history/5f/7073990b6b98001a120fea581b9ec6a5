@@ -1,0 +1,10 @@
+
+public class PropertyFactory extends APropertyFactory{
+	
+	public Property createProperty(int id){
+		return new Property(id);
+	}
+	
+	
+
+}

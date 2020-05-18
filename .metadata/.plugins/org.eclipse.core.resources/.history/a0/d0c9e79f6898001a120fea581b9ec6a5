@@ -1,0 +1,18 @@
+import java.sql.Date;
+
+public abstract class AbstractProperty {
+	
+	protected int id;
+	protected String type;
+	protected String status;
+	protected Date date;
+	protected String title;
+	protected String address;
+	
+	public AbstractProperty(int id){
+		this.id = id;
+	}
+	
+	
+
+}

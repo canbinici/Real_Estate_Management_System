@@ -1,0 +1,46 @@
+import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+public class DatabaseHandler {
+	
+	static Connection con;
+	
+	public DatabaseHandler(){
+		
+		try{
+			
+			
+			
+			//WÝLL BE CHANGED FOR DATABASE 
+			
+			con = DriverManager.getConnection("jdbc:sqlite:C:/sqlite/AMS.db");
+			
+			System.out.println("Connection is successful !");
+			
+			
+		}catch(SQLException e){
+			
+			e.printStackTrace();
+			
+		}
+	}
+	
+	public static ArrayList<Integer> GetAllPropertyIDs() throws SQLException{
+		Statement st = con.createStatement();
+		ArrayList<Integer> property_ids = new ArrayList<>();
+		Integer property_id = null;
+		String Query = "SELECT id FROM `properties`";
+		ResultSet ResultQuerySet = st.executeQuery(Query);
+		
+		while(ResultQuerySet.next())
+		{
+	        property_id = ResultQuerySet.getInt("id");
+	        property_ids.add(property_id);
+		}
+        return property_ids;
+	}
+
+}

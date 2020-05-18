@@ -1,0 +1,51 @@
+import java.sql.*;
+
+public class Property extends AbstractProperty{
+	
+	public Property(int id) throws SQLException{
+		this.id = id;
+		setType(new String(DatabaseHandler.GetTypeFromID(this.id)));
+		setStatus(new String(DatabaseHandler.GetStatusFromID(this.id)));
+		//setDate(new Long(DatabaseHandler.GetDateFromID(this.id)));
+		setTitle(new String(DatabaseHandler.GetTitleFromID(this.id)));
+		setAddress(new String(DatabaseHandler.GetAddressFromID(this.id)));
+	}
+	
+	public void setType(String type){
+		this.type = type ;
+		
+	}
+	public void setStatus(String status){
+		this.status = status ;
+		
+	}
+	public void setDate(Long date){
+		this.date =  date ;
+		
+	}
+	public void setTitle(String title){
+		this.title = title ;
+		
+	}
+	public void setAddress(String address){
+		this.address = address ;
+		
+	}
+	public String getType(int id){
+		return this.type;
+	}
+	public String getStatus(int id){
+		return this.status;
+	}
+	public Long getDate(int id){
+		return this.date;
+	}
+	public String getTitle(int id){
+		return this.title;
+	}
+	public String getAddress(int id){
+		return this.address;
+	}
+
+
+}

@@ -1,0 +1,28 @@
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+public class SystemHandler {
+	
+	private static DatabaseHandler Database;
+	
+	public SystemHandler() throws SQLException{
+		
+		setDatabase(new DatabaseHandler());
+		GetAllPropertyIDs();
+		
+	}
+	
+	public DatabaseHandler getDatabase(){
+		return Database;
+	}
+	public void setDatabase(DatabaseHandler database){
+		Database = database;
+	}
+	
+	public void GetAllPropertyIDs() throws SQLException{
+		ArrayList<Integer> property_ids = Database.GetAllPropertyIDs();
+		System.out.println(property_ids);
+	}
+	
+	
+}

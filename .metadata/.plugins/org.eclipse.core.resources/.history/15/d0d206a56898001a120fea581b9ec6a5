@@ -1,0 +1,6 @@
+
+public abstract class APropertyFactory {
+	
+	abstract public Property createProperty();
+
+}

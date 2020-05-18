@@ -1,0 +1,41 @@
+
+public class ConcreteObserver implements Observer {
+	
+	private AbstractProperty _property;
+	private String _observer_name;
+	private String _type;
+	private String _status;
+	private String _address;
+	private String _desired_type;
+	private String _desired_status;
+	private String _desired_address;
+	
+	
+	public ConcreteObserver(String name, String desired_type, String desired_status, String desired_address){
+		_observer_name = name;
+		_desired_type = desired_type;
+		_desired_status = desired_status;
+		_desired_address = desired_address;
+	}
+	
+	public void Update(AbstractProperty property){
+		_property = property;
+		_type = property.getType();
+		_status = property.getStatus();
+		_address = property.getAddress();
+		
+		/*if(){
+			
+		}
+*/	}
+	
+	public AbstractProperty getProperty(){
+		return _property;
+	}
+	public void setProperty(AbstractProperty value){
+		_property = value;
+	}
+	public String getName(){
+		return _observer_name;
+	}
+}

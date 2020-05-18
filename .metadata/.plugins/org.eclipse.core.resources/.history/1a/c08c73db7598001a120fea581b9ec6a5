@@ -1,0 +1,34 @@
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+public class SystemHandler {
+	
+	private static DatabaseHandler Database;
+	
+	public SystemHandler() throws SQLException{
+		
+		setDatabase(new DatabaseHandler());
+		ArrayList<Integer> IDS = GetAllPropertyIDs();
+		for(Integer i : IDS){
+			APropertyFactory property = new PropertyFactory();
+			property.createProperty(i);
+		}
+		
+	}
+	
+	public DatabaseHandler getDatabase(){
+		return Database;
+	}
+	public void setDatabase(DatabaseHandler database){
+		Database = database;
+	}
+	
+	public ArrayList<Integer> GetAllPropertyIDs() throws SQLException{
+		
+		ArrayList<Integer> property_ids = Database.GetAllPropertyIDs();
+		
+		return property_ids;
+	}
+	
+	
+}
