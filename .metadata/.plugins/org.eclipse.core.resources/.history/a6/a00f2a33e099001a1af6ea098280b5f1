@@ -1,0 +1,15 @@
+
+public class Agent {
+	
+	public Agent(){
+		
+	}
+	
+	public ConcreteObserver createObserver(Customer c){
+		
+			return new ConcreteObserver(c);
+	}
+	
+	private ConcreteObserver observer;
+
+}

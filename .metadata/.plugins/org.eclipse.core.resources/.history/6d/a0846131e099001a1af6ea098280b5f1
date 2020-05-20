@@ -1,0 +1,17 @@
+
+public class Information {
+	
+	private Property _id;
+
+	
+	public Information(Customer c){
+		this._id = c.getId();
+		searchProperty(_id);
+	}
+	
+	public void searchProperty(Property id){
+		System.out.println(id +", " + id.getType() + ", " + id.getStatus()+ ", " + id.getTitle()+ ", " + id.getAddress());
+		
+	}
+
+}

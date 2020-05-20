@@ -4,7 +4,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
+//DatabaseHandler provides the communication between system and database and
+	 //to create each property object supply information from database
 public class DatabaseHandler {
 	
 	static Connection con;
@@ -13,7 +14,7 @@ public class DatabaseHandler {
 		
 		try{
 			
-			con = DriverManager.getConnection("jdbc:sqlite:C:/sqlite/rem_systemdb.db");
+			con = DriverManager.getConnection("jdbc:sqlite:C:/sqlite/rem_system.db");
 			
 			System.out.println("Connection is successful !");
 			
@@ -103,6 +104,18 @@ public class DatabaseHandler {
 	        Address = ResultQuerySet.getString("p_address");
 		}
         return Address;
+	}
+	public static Integer GetPriceFromID(int id) throws SQLException{
+		Statement st = con.createStatement();
+		Integer Price = null;
+		String Query = "SELECT p_price FROM `properties` WHERE `id` = '" + id + "'";
+		ResultSet ResultQuerySet = st.executeQuery(Query);
+		
+		while(ResultQuerySet.next())
+		{
+	        Price = ResultQuerySet.getInt("p_price");
+		}
+        return Price;
 	}
 
 }

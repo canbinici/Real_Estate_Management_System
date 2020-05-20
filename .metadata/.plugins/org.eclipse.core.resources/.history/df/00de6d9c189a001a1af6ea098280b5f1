@@ -1,0 +1,20 @@
+import java.sql.SQLException;
+
+public class Agent {
+	
+	public Agent(){
+		
+	}
+	
+	public ConcreteObserver createObserver(Customer c){
+		
+			return new ConcreteObserver(c);
+	}
+	
+	public void displayInformation(Customer c) throws SQLException{
+			
+			Information i = new Information(c);
+			i.searchProperty(c.getId());
+	}
+
+}

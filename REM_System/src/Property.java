@@ -1,15 +1,16 @@
 import java.sql.*;
 
+//Concrete Product for Factory Pattern
 public class Property extends AbstractProperty{
 	
 	public Property(int id) throws SQLException{
 		this.id = id;
-		setType(new String(DatabaseHandler.GetTypeFromID(this.id)));
-		setStatus(new String(DatabaseHandler.GetStatusFromID(this.id)));
+		this.type = new String(DatabaseHandler.GetTypeFromID(this.id));
+		this.status = new String(DatabaseHandler.GetStatusFromID(this.id));
 		//setDate(new Long(DatabaseHandler.GetDateFromID(this.id)));
-		setTitle(new String(DatabaseHandler.GetTitleFromID(this.id)));
-		setAddress(new String(DatabaseHandler.GetAddressFromID(this.id)));
-		
+		this.title = new String(DatabaseHandler.GetTitleFromID(this.id));
+		this.address = new String(DatabaseHandler.GetAddressFromID(this.id));
+		this.price = new Integer(DatabaseHandler.GetPriceFromID(this.id));		
 	}
 	
 	public void setType(String type){
@@ -47,6 +48,18 @@ public class Property extends AbstractProperty{
 	public String getAddress(){
 		return this.address;
 	}
-
+	public int getID(){
+		return this.id;
+	}
+	public void setID(int id){
+		 this.id = id;
+	}
+	public int getPrice(){
+		return this.price;
+	}
+	public void setPrice(int price){
+		 this.price = price;
+		 Notify();
+	}
 
 }

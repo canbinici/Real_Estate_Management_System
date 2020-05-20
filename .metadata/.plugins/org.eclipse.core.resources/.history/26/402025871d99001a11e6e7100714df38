@@ -1,0 +1,10 @@
+
+public class Agent {
+	
+	public Agent(){
+		
+	}
+	
+	private ConcreteObserver observer;
+
+}

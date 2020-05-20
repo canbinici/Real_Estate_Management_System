@@ -1,0 +1,19 @@
+
+public class Agent {
+	
+	public Agent(){
+		
+	}
+	
+	public ConcreteObserver createObserver(Customer c){
+		
+			return new ConcreteObserver(c);
+	}
+	
+	public void displayInformation(Customer c){
+			
+			Information i = new Information(c);
+			i.searchProperty(c.getId());
+	}
+
+}

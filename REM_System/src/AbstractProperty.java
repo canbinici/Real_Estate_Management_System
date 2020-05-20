@@ -1,6 +1,6 @@
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+//Abstract Product for Factory Pattern
 public abstract class AbstractProperty {
 
 	protected int id;
@@ -9,12 +9,17 @@ public abstract class AbstractProperty {
 	protected Long date;
 	protected String title;
 	protected String address;
+	protected int price;
 	
+	abstract public int getID();
 	abstract public String getType();
 	abstract public String getStatus();
 	abstract public Long getDate();
 	abstract public String getTitle();
 	abstract public String getAddress();
+	abstract public int getPrice();
+	abstract public void setPrice(int price);
+	abstract public void setTitle(String title);
 	abstract public void setType(String type);
 	abstract public void setStatus(String status);
 	abstract public void setAddress(String address);
