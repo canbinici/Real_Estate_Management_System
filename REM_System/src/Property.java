@@ -7,10 +7,11 @@ public class Property extends AbstractProperty{
 		this.id = id;
 		this.type = new String(DatabaseHandler.GetTypeFromID(this.id));
 		this.status = new String(DatabaseHandler.GetStatusFromID(this.id));
-		//setDate(new Long(DatabaseHandler.GetDateFromID(this.id)));
 		this.title = new String(DatabaseHandler.GetTitleFromID(this.id));
 		this.address = new String(DatabaseHandler.GetAddressFromID(this.id));
 		this.price = new Integer(DatabaseHandler.GetPriceFromID(this.id));		
+		this.year = new Integer(DatabaseHandler.GetYearFromID(this.id));
+		this.month = new Integer(DatabaseHandler.GetMonthFromID(this.id));
 	}
 	
 	public void setType(String type){
@@ -61,5 +62,20 @@ public class Property extends AbstractProperty{
 		 this.price = price;
 		 Notify();
 	}
-
+	
+	public void Accept(Visitor visitor) throws SQLException{
+		visitor.Visit(this);
+	}
+	public int getMonth(){
+		return this.month;
+	}
+	public void setMonth(int month){
+		 this.month = month;
+	}
+	public int getYear(){
+		return this.year;
+	}
+	public void setYear(int year){
+		 this.year = year;
+	}
 }

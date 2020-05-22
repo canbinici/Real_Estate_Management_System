@@ -1,7 +1,7 @@
 import java.sql.SQLException;
 import java.util.ArrayList;
 //Abstract Product for Factory Pattern
-public abstract class AbstractProperty {
+public abstract class AbstractProperty implements Element{
 
 	protected int id;
 	protected String type;
@@ -10,6 +10,8 @@ public abstract class AbstractProperty {
 	protected String title;
 	protected String address;
 	protected int price;
+	protected int year;
+	protected int month;
 	
 	abstract public int getID();
 	abstract public String getType();
@@ -18,11 +20,15 @@ public abstract class AbstractProperty {
 	abstract public String getTitle();
 	abstract public String getAddress();
 	abstract public int getPrice();
+	abstract public int getYear();
+	abstract public int getMonth();
 	abstract public void setPrice(int price);
 	abstract public void setTitle(String title);
 	abstract public void setType(String type);
 	abstract public void setStatus(String status);
 	abstract public void setAddress(String address);
+	abstract public void setYear(int year);
+	abstract public void setMonth(int month);
 
 	
 	protected ArrayList<ConcreteObserver> observers = new ArrayList<ConcreteObserver>();

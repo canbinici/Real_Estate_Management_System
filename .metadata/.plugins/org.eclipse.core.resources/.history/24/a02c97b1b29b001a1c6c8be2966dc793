@@ -1,0 +1,8 @@
+
+public class DateVisitor {
+	
+	public void Visit(Property property){
+		
+	}
+
+}

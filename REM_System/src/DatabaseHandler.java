@@ -2,7 +2,10 @@ import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.sql.Date;
 
 //DatabaseHandler provides the communication between system and database and
 	 //to create each property object supply information from database
@@ -67,17 +70,44 @@ public class DatabaseHandler {
         return Status;
 	}
 	
-	public static Date GetDateFromID(int id) throws SQLException{
+	public static Integer GetYearFromID(int id) throws SQLException{
 		Statement st = con.createStatement();
-		Date date = null;
-		String Query = "SELECT p_date FROM `properties` WHERE `id` = '" + id + "'";
+		Integer year = null;
+		
+		String Query = "SELECT p_year FROM `properties` WHERE `id` = '" + id + "'";
 		ResultSet ResultQuerySet = st.executeQuery(Query);
 		
 		while(ResultQuerySet.next())
 		{
-	        date = ResultQuerySet.getDate("p_date");
+	        year = ResultQuerySet.getInt("p_year");
 		}
-        return date;
+        return year;
+	}
+	public static Integer GetMonthFromID(int id) throws SQLException{
+		Statement st = con.createStatement();
+		Integer month = null;
+		
+		String Query = "SELECT p_month FROM `properties` WHERE `id` = '" + id + "'";
+		ResultSet ResultQuerySet = st.executeQuery(Query);
+		
+		while(ResultQuerySet.next())
+		{
+	        month = ResultQuerySet.getInt("p_month");
+		}
+        return month;
+	}
+	public static Integer GetDayFromID(int id) throws SQLException{
+		Statement st = con.createStatement();
+		Integer day = null;
+		
+		String Query = "SELECT p_day FROM `properties` WHERE `id` = '" + id + "'";
+		ResultSet ResultQuerySet = st.executeQuery(Query);
+		
+		while(ResultQuerySet.next())
+		{
+	        day = ResultQuerySet.getInt("p_day");
+		}
+        return day;
 	}
 	
 	public static String GetTitleFromID(int id) throws SQLException{
@@ -116,6 +146,13 @@ public class DatabaseHandler {
 	        Price = ResultQuerySet.getInt("p_price");
 		}
         return Price;
+	}
+	
+	public static void DeleteProperty(int id) throws SQLException{
+		
+		Statement stmt = con.createStatement();
+        String ClearQuery = "DELETE FROM `properties` WHERE `id` ='" + id + "'";
+        stmt.executeUpdate(ClearQuery);
 	}
 
 }
